@@ -1,0 +1,18 @@
+ # Empolyee details input
+empolyee_name = input("enter empolyee_name: ")
+empolyee_id = input ("enter empolyee_id: ")
+empolyee_salary = input ("enter empolyee_salary: ")
+pay_back = float(input("enter empolyee basic salary: "))
+daily_allowance = float(input("enter daily allowance: "))
+
+# Calculate net salary 
+net_salary = (empolyee_salary + pay_back) * daily_allowance
+
+#display empolyee details and calculated net salary
+print("\nempolyee details:")
+print(f"empolyee name: {empolyee_name}")
+print(f"empolyee id: {empolyee_id}")
+print(f"empolyee basic salary: ${empolyee_salary:.2f}")
+print(f"empolyee back amount: ${pay-back:.2f}")
+print(f"daily allowance: ${daily_allowance:.2f}")
+print(f"net salary: ${net_salary:.2f}")
