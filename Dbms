@@ -1,0 +1,89 @@
+CREATE TABLE department ( 
+    DeptId int primary Key not null, 
+    DeptName varchar(25), 
+    DeptLoc varchar(25) );
+
+CREATE TABLE Employee(  
+    EmpId int PRIMARY KEY,  
+    EmpName varchar(50),  
+    DoB date,  
+    DoJ date,  
+    Job varchar(25),  
+    Salary int,  
+    DeptId int not null, Foreign Key(DeptId) references Department(DeptId));
+
+CREATE TABLE product( 
+    ProdId int PRIMARY KEY, 
+    ProdName varchar(255) , 
+    Price int not null );
+
+INSERT INTO department VALUES (5,'Accounts','Bangalore');
+
+INSERT INTO department VALUES 
+  (6,'Sales','Chennai') ;
+
+INSERT INTO department VALUES 
+  (7,'Technical','New Delhi') ;
+
+INSERT INTO department VALUES 
+  (8,'HR','Mysore');
+
+INSERT INTO department VALUES 
+  (9,'R&D','Mumbai') ;
+
+select * from department;
+
+INSERT INTO Employee VALUES(001,'SANTHOSH',to_date('1985-12-05', 'yyyy-mm-dd'),to_date('2022-02-01', 'yyyy-mm-dd'),'Accountant',35000,5);
+
+INSERT INTO Employee VALUES(002,'Thomas Hardy',to_date('1987-10-17', 'yyyy-mm-dd'),to_date('2021-02-01', 'yyyy-mm-dd'), 'Sales Manager',55000,6);
+
+INSERT INTO Employee VALUES(003,'Antonio Moreno',to_date('1989-05-14', 'yyyy-mm-dd'),to_date('2022-04-15', 'yyyy-mm-dd'), 'Technician',25000,7);
+
+INSERT INTO Employee VALUES(004,'Ana Trujillo',to_date('1995-07-22', 'yyyy-mm-dd'),to_date('2022-04-01', 'yyyy-mm-dd'), 'HR Manager',30000,8);
+
+INSERT INTO Employee VALUES(005,'Maria Anders',to_date('1993-09-30', 'yyyy-mm-dd'),to_date('2021-07-15', 'yyyy-mm-dd'), 'Research Intern',20000,9);
+
+select * from Employee;
+
+INSERT INTO Employee VALUES(006,'John Hardy',to_date('1992-11-01', 'yyyy-mm-dd'),to_date('2022-05-01', 'yyyy-mm-dd'), 'Sales Team',25000,6);
+
+INSERT INTO Employee VALUES(007,'Samhith',to_date('1994-11-01', 'yyyy-mm-dd'),to_date('2023-01-01', 'yyyy-mm-dd'), 'Sales Team',20000,6);
+
+Select * from Employee;
+
+INSERT INTO Product VALUES(101,'Sun Glasses',3000);
+
+INSERT INTO Product VALUES(102,'Hand Gloves',1000);
+
+INSERT INTO Product VALUES(103,'Helmet',2500);
+
+INSERT INTO Product VALUES(104,'Jacket',4500);
+
+INSERT INTO Product VALUES(105,'Camera',1500);
+
+select * from Product;
+
+CREATE TABLE sales(  
+    SalesId int PRIMARY KEY,  
+    SaleDate date,  
+    Quantity int,   
+    EmpId int not null,  
+    ProdId int not null,  
+    Foreign Key(EmpID) references Employee(EmpId),  
+    Foreign Key(ProdId) references Product(ProdId));
+
+  INSERT INTO sales VALUES(501, to_date('2022-10-01', 'yyyy-mm-dd'), 10,02,101);
+
+  INSERT INTO sales VALUES(502, to_date('2022-10-15', 'yyyy-mm-dd'), 25,02,102);
+
+  INSERT INTO sales VALUES(503, to_date('2023-11-01', 'yyyy-mm-dd'), 35,06,103);
+
+  INSERT INTO sales VALUES(504, to_date('2022-07-01', 'yyyy-mm-dd'), 5,06,102);
+
+  INSERT INTO sales VALUES(505, to_date('2023-07-01', 'yyyy-mm-dd'),45,07,104);
+
+  INSERT INTO sales VALUES(506, to_date('2023-07-01', 'yyyy-mm-dd'),15,07,105);
+
+  INSERT INTO sales VALUES(507, to_date('2023-08-15', 'yyyy-mm-dd'),35,06,105);
+
+select * from sales;
